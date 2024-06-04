@@ -7,7 +7,7 @@ stages
  {
     steps 
    {
-     git branch: 'master', url: 'https://github.com/Pranav-7670/mavenproject.git'
+     git branch: 'master', url: 'https://github.com/Pranav-7670/java-tomcat-maven-example.git'
    }    
  } 
  stage('execute unit test framework')
@@ -28,15 +28,7 @@ stages
    }
  }    
  }  
- stage('deploy_to_tomcat')
-{
-    steps 
-   {
-     sshagent(['tomcat']) {
-     sh "scp  -o StrictHostKeyChecking=no /opt/maven_data/mavenproject/server/target/server.jar ec2-user@54.159.77.193:/opt/apache-tomcat-9.0.89/webapps" 
-      }     
-   }    
- }  
+
  
   // stage("publish to nexus") {
   //           steps {
